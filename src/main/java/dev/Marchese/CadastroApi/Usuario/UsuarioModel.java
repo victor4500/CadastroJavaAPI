@@ -33,7 +33,7 @@ public class UsuarioModel {
     //using the annotation ManyToOne you say for java if only 1 called will be linked by user
     @ManyToOne
     @JoinColumn(name = "chamados_id")//this is our foreign key she serves to connect 2 tables or more
-    private List <ChamadoModel> chamados;
+    private ChamadoModel chamados;
 
 
 
