@@ -2,9 +2,17 @@ package dev.Marchese.CadastroApi.Usuario;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping
 public class UsuarioController {
+
+    private UsuarioService usuarioService;
+
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @GetMapping("/boasvindas")
     public String boasVindas(){
@@ -19,8 +27,8 @@ public class UsuarioController {
 
     //Show all users
     @GetMapping("/ShowUser")
-    public String showUsers(){
-        return "This is all users";
+    public List<UsuarioModel> showUsers(){
+        return usuarioService.showUser();
     }
 
     //Show users by id

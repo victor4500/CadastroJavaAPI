@@ -1,5 +1,6 @@
 package dev.Marchese.CadastroApi.Chamados;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.Marchese.CadastroApi.Usuario.UsuarioModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ public class ChamadoModel {
 
     //Using the OneToMany, you say the java that this object recive 1 our more users for each call
     @OneToMany(mappedBy = "chamados")//if the OneToMany is used you must mapalo with where the ManyToOne this is being used, im my case it is in lisT off called
+    @JsonIgnore//Use the JsonIgnore to not create a loop when using the showUser method
     private List <UsuarioModel> usuario;
 
 }
